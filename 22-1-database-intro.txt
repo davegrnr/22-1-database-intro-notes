@@ -1,0 +1,66 @@
+UNIT 22.1 DATABASES INTRO
+
+[2] DATABASES INTRO
+Databases are a collection of information that pretty much functions like a spreadsheet.
+
+[3] DATABASE TERMINOLOGY
+Generally there are 2 types/divisions between databases
+Relational - Database that stores data in tables (like PostgreSQL). Think of like a database that stores movie ratings. They would have columns for title, year, genre, etc… They use tabular data. We don’t actually look at it though!
+Non-SQL - forego the tabular model. There are key-value, column, graph. We are not going to learn non-SQL databases.
+RDBMS  Relational Database Management System - this is essentially the software we will use as a dev to interact with the database, e.g. PostgreSQL, MySQL, Oracle
+Schema - logical representation of a database including tables. The “gameplan”
+You have to write out an expectation for what your data will look like.
+SQL - Structured Query Language, a human readable language for querying 
+Table or Relation - basically the spreadsheet of columns and rows
+Column - table attribute like “first_name”, “last_name”, “company”, “id”
+Row - a table record with values for each column e.g. “David,” “Garner,” “Amadeus”
+
+[4] VISUALIZING RELATIONAL DATABASES
+The dev can’t actually “see” the database, but just think of it like a spreadsheet table.
+Typically, we will have 1 table like “MOVIES” and another table like “USERS” that references the other. There could also be a “RATINGS” table.
+This information would all reference each other to let users submit a rating for each movie.
+You’d have the “RATINGS” table with columns that have ‘id,’ ‘user id,’ ‘movie id,’ and ‘score’
+This table would let you be able to reference the others and combine data using the SQL
+To request an average rating once you have all the info, you’d have to request the move, stored as movie id, and then average the rating. This is the ‘relational’ portion of databases.
+[5] INSTALLING POSTGRESQL
+
+
+
+[] POSTGRES COMMANDS
+- psql my_database_name - will connect you to that database and you can now interact with that database
+- createdb some_database_name
+It’s very common to make a new database per app
+The database is NOT a file in the current directory
+Seeding a database: you can feed .sql scripts into the program psql:
+-psql < my_database.sql
+This is used to seed an empty database with starter data by creating tables etc..
+Common Commands:
+\l - lists all databases
+\c DB_NAME - connect to DB_NAME
+\dt - list all tables in current db
+\d TABLE_NAME - give details about TABLE_NAME in current db
+\q - quit psql - also CTRL + D
+In zsh you can do
+-dropdb DB_NAME to delete
+You can backup a database by “dumping” it to a file:
+This will contain all necessary information to recreate that db
+	$ pg_dump -C -c -O y_database_name > backup.sql
+
+
+[10] SQL INTRO
+SQL is case-sensitive
+Single, NOT double, quotes.
+Commands must end with semicolon ;
+Even with an invalid command, you must end it with a semicolon
+SQL keywords are conventionally written in ALL CAPS but not required.
+[] DATABASES INTRO
+
+
+[] DATABASES INTRO
+
+
+[] DATABASES INTRO
+
+
+
+
